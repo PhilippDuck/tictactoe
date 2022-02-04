@@ -346,13 +346,13 @@ function buildGrid() {
             kennzahl.className = "kennzahl";
     
             if (key === "taktzeit") {
-                kennzahl.innerHTML = "<img class='icon' src='img/clock.png'> Taktzeit";
+                kennzahl.innerHTML = "<img src='img/clock.png'> Taktzeit";
             } else if (key === "mehrfachlaeuferquote") {
-                kennzahl.innerHTML = "<img class='icon' src='img/dlq.png'> DLQ";
+                kennzahl.innerHTML = "<img src='img/dlq.png'> DLQ";
             } else if (key === "bildverarbeitung") {
-                kennzahl.innerHTML = "<img class='icon' src='img/cam.png'> IBV";
+                kennzahl.innerHTML = "<img src='img/cam.png'> IBV";
             } else if (key === "schrauber") {
-                kennzahl.innerHTML = "<img class='icon' src='img/drill.png'> Schrauber";
+                kennzahl.innerHTML = "<img src='img/drill.png'> Schrauber";
             }
 
             const classname = kennzahl.className;
