@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+header {
+    margin-left: 15px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+table {
+    border-spacing: 5px;
+    width: 100%;
+}
+
+table caption {
+    text-align: left;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+table img {
+    vertical-align: middle;
+    height: 30px;
+    width: 30px;
+}
+
+table tr {
+    width:100%;
+}
+
+
+table td {
+
+    vertical-align: middle;
+    font-size: 10pt;
+}
+
+.tdIO {
+    background-color: rgb(136, 250, 117);
+    border-radius: 15px;
+    padding:5px;
+    padding-right: 10px;
+}
+
+.tdIO:hover {
+    background-color: rgb(69, 241, 38);
+    cursor: pointer;
+}
+
+.tdNIO {
+    background-color: rgb(250, 130, 117);
+    border-radius: 15px;
+    padding:5px;
+    padding-right: 10px;
+}
+
+.tdNIO:hover{
+    background-color: rgb(255, 98, 80);
+    cursor: pointer;
+}
+
+table th {
+    text-align: left;
+    height: 35px;
+}
+
+
+.kostenstelle {
+    background-color: #ededed;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    margin:5px;
+    padding: 5px;
+}
+
+.anlage {
+    background-color: white;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.icon {
+    width: 30px;
+}
+
+.hKostenstelle {
+    text-align: center;
+    font-size: 12pt;
+    font-weight: 600;
+}
+
