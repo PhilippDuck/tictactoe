@@ -35,7 +35,7 @@ button:hover {
 .kennzahlen {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
 }
 
 .kennzahl {
