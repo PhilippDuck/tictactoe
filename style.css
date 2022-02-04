@@ -9,67 +9,40 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 
 }
 
-table {
-    border-spacing: 5px;
-    width: 100%;
+.kennzahlen {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-table caption {
-    text-align: left;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-table img {
-    vertical-align: middle;
-    height: 30px;
-    width: 30px;
+.kennzahl {
+    background-color: rgb(138, 255, 144);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    padding: 5px;
 }
 
-table tr {
-    width:100%;
-}
-
-
-table td {
-
-    vertical-align: middle;
-    font-size: 10pt;
-}
-
-.tdIO {
-    background-color: rgb(136, 250, 117);
-    border-radius: 15px;
-    padding:5px;
-    padding-right: 10px;
-}
-
-.tdIO:hover {
-    background-color: rgb(69, 241, 38);
+.kennzahl:hover {
+    background-color: rgb(94, 252, 102);
     transform: scale(1.05);
     cursor: pointer;
 }
 
-.tdNIO {
-    background-color: rgb(250, 130, 117);
-    border-radius: 15px;
-    padding:5px;
-    padding-right: 10px;
+.nio {
+    background-color: rgb(255, 129, 129);
+
 }
 
-.tdNIO:hover{
-    background-color: rgb(255, 98, 80);
-    transform: scale(1.05);
-    cursor: pointer;
+.nio:hover {
+    background-color: rgb(248, 100, 100);
 }
 
-table th {
-    text-align: left;
-    height: 35px;
+.kennzahl img {
+    vertical-align: middle;
 }
 
 
@@ -89,15 +62,13 @@ table th {
     border-radius: 15px;
 }
 
-
+.anlage:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+    cursor: pointer;
+}
 
 .icon {
     width: 30px;
-}
-
-.hKostenstelle {
-    text-align: center;
-    font-size: 12pt;
-    font-weight: 600;
 }
 
