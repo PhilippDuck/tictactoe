@@ -135,7 +135,7 @@ const anlagenKennzahlen = [
     }},
     {anlage: {
         name: "PPE Sensor",
-        inventarnummer: 930,
+        inventarnummer: "nicht definiert",
         kostenstelle: 3280,
         kennzahlen: {
             taktzeit: true,
@@ -293,7 +293,7 @@ const anlagenFlops = [
     }},
     {anlage: {
         name: "PPE Sensor",
-        inventarnummer: 930,
+        inventarnummer: 0000000,
         kostenstelle: 3280,
         kennzahlen: {
             taktzeit: true,
@@ -331,6 +331,10 @@ function buildGrid() {
         const title = document.createElement("h4");
         title.innerText = anlagenValue["anlage"]["name"];
         anlage.append(title);
+
+        const inventarnummer = document.createElement("h5");
+        inventarnummer.innerText = anlagenValue["anlage"]["inventarnummer"];
+        anlage.append(inventarnummer);
         
     
         const kennzahlen = document.createElement("div")
@@ -344,9 +348,9 @@ function buildGrid() {
             if (key === "taktzeit") {
                 kennzahl.innerHTML = "<img class='icon' src='img/clock.png'> Taktzeit";
             } else if (key === "mehrfachlaeuferquote") {
-                kennzahl.innerHTML = "<img class='icon' src='img/dlq.png'> Mehrfachläuferquote";
+                kennzahl.innerHTML = "<img class='icon' src='img/dlq.png'> DLQ";
             } else if (key === "bildverarbeitung") {
-                kennzahl.innerHTML = "<img class='icon' src='img/cam.png'> Bildverarbeitung";
+                kennzahl.innerHTML = "<img class='icon' src='img/cam.png'> IBV";
             } else if (key === "schrauber") {
                 kennzahl.innerHTML = "<img class='icon' src='img/drill.png'> Schrauber";
             }

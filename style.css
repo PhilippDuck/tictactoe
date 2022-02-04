@@ -1,5 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
 
 }
 
@@ -9,14 +10,14 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
 }
 
 .kennzahlen {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 }
 
 .kennzahl {
@@ -24,6 +25,8 @@ main {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 50px;
     padding: 5px;
+    padding-left: 10px;
+
 }
 
 .kennzahl:hover {
@@ -62,13 +65,26 @@ main {
     border-radius: 15px;
 }
 
+.anlage h4 {
+    margin-bottom: 0px;
+    display: inline;
+
+}
+
+.anlage h5 {
+    margin: 0px;
+    margin-bottom: 5px;
+    font-weight: 200;
+    
+}
+
 .anlage:hover {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-    transform: scale(1.02);
     cursor: pointer;
 }
 
 .icon {
     width: 30px;
+
 }
 
