@@ -170,11 +170,12 @@ function getData() {
     .then(res => res.json())
     .then(data => {
         machineOverviewJSOnData = data;
+        randomizeData();
         buildGrid(data, false);
     })
 }
 
-// Gibt zufällig 1 oder 0 zurück. Die wahrscheinlichkeit 
+// Gibt zufällig 1 oder 0 zurück. Die Wahrscheinlichkeit 
 // eine 1 zu erhalten ist höher
 function getRandomValue() {
     let randomInt = Math.floor(Math.random() * 2);
