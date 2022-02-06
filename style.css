@@ -35,7 +35,7 @@ button:hover {
 .kennzahlen {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
 }
 
 .kennzahl {
@@ -54,6 +54,10 @@ button:hover {
     background-color: rgb(182, 251, 113);
     transform: scale(1.05);
     cursor: pointer;
+}
+
+.noData {
+    background-color: rgb(201, 201, 201);
 }
 
 .nio {
