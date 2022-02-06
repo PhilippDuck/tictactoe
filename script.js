@@ -2,6 +2,51 @@
 
 let machineOverviewJSOnData;
 
+function showDetail() {
+    if (this.className.includes("span2")) {
+        this.removeChild(this.lastChild);
+        this.className = "anlage";
+    } else {
+        console.log(this);
+        const detail = document.createElement("div");
+        detail.className = "deatil";
+        const newP = document.createElement("p");
+        newP.innerHTML = `<strong>Details:</strong>
+                        <table>
+                            <tr>
+                                <td>
+                                    Stückzahl:
+                                </td>
+                                <td class="number">
+                                    342
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Takzeit (s):
+                                </td>
+                                <td class="number">
+                                    32,4
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Stillstandszeit (min):
+                                </td>
+                                <td class="number">
+                                    42
+                                </td>
+                            </tr>
+                        </table>
+                        `;
+        detail.append(newP);
+        const classname = this.className;
+        this.className = `${classname} span2`;
+        this.append(detail);
+    }
+    
+}
+
 function buildGrid(anlagen, showAll) {
     deleteContent();
 
@@ -16,6 +61,7 @@ function buildGrid(anlagen, showAll) {
 
         const anlage = document.createElement("div");
         anlage.className = "anlage";
+        anlage.addEventListener("click", showDetail);
 
         const title = document.createElement("h4");
         title.innerText = anlagenValue["anlage"]["name"];
@@ -69,10 +115,7 @@ function buildGrid(anlagen, showAll) {
         // hat sie mehr NIO-Kennzahlen als die vorherige Anlage wird sie vor 
         // die letzte NIO-Anlage einsortiert:
         if (anlageNio) {
-            console.log(title);
-            console.log(`${anzahlNio} - ${highestNIOAnlage["nios"]}`);
             if (!highestNIOAnlage["anlage"]) {
-                console.log("POOOP");
                 main.insertAdjacentElement("afterbegin", anlage);
                 highestNIOAnlage = {anlage: anlage, nios: anzahlNio}
                 lowestNIOAnlage = {anlage: anlage, nios: anzahlNio}

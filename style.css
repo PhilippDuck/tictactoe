@@ -32,6 +32,14 @@ button:hover {
     cursor: pointer;
 }
 
+table {
+    width: 100%;
+}
+table .number {
+    text-align: right;
+}
+
+
 .kennzahlen {
     display: grid;
     gap: 10px;
@@ -109,6 +117,10 @@ button:hover {
 .anlage:hover {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+}
+
+.span2 {
+    grid-row: span 2;
 }
 
 @media only screen and (max-width: 520px) {
