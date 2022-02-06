@@ -51,13 +51,15 @@ button:hover {
 }
 
 .kennzahl:hover {
-    background-color: rgb(182, 251, 113);
     transform: scale(1.05);
     cursor: pointer;
 }
 
 .noData {
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(172, 172, 172);
+}
+.io:hover {
+    background-color: rgb(182, 251, 113);
 }
 
 .nio {
