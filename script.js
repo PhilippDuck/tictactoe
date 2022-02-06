@@ -56,7 +56,7 @@ function buildGrid(anlagen, showAll) {
 
     let highestNIOAnlage = {anlage: null, nios: 0};
     let lowestNIOAnlage = {anlage: null, nios: 0};
-    const animationDuration = 30;
+    const animationDuration = 80;
     for (const [anlagenKey, anlagenValue] of Object.entries(anlagen)) {
         let anlageNio = false;
         let anzahlNio = 0;
@@ -84,16 +84,7 @@ function buildGrid(anlagen, showAll) {
             //console.log(`${key}: ${value}`);
             const kennzahl = document.createElement("div");
             kennzahl.className = "kennzahl";
-    
-            if (key === "taktzeit") {
-                kennzahl.innerHTML = "<img src='img/clock.png'> Taktzeit";
-            } else if (key === "mehrfachlaeuferquote") {
-                kennzahl.innerHTML = "<img src='img/dlq.png'> Mehrfach<wbr>läuferquote";
-            } else if (key === "bildverarbeitung") {
-                kennzahl.innerHTML = "<img src='img/cam.png'> Kamera<wbr>systeme";
-            } else if (key === "schrauber") {
-                kennzahl.innerHTML = "<img src='img/drill.png'> Schraub<wbr>technik";
-            }
+
 
             const classname = kennzahl.className;
             if (anlagenValue["anlage"]["status"] !== 1) {
@@ -106,6 +97,34 @@ function buildGrid(anlagen, showAll) {
                 anzahlNio += 1;
                 kennzahlNio = true;
             }
+
+            if (key === "taktzeit") {
+                if (value || kennzahl.classList.contains("noData")) {
+                    kennzahl.innerHTML = "<img src='img/clock.png'> Taktzeit";
+                } else {
+                    kennzahl.innerHTML = "<img src='img/clock_white.png'> Taktzeit";
+                }
+            } else if (key === "mehrfachlaeuferquote") {
+                if (value || kennzahl.classList.contains("noData")) {
+                    kennzahl.innerHTML = "<img src='img/dlq.png'> Direkt<wbr>läufer<wbr>quote";
+                } else {
+                    kennzahl.innerHTML = "<img src='img/dlq_white.png'> Direkt<wbr>läufer<wbr>quote";
+                }
+            } else if (key === "bildverarbeitung") {
+                if (value || kennzahl.classList.contains("noData")) {
+                    kennzahl.innerHTML = "<img src='img/cam.png'> Kamera<wbr>systeme";
+                } else {
+                    kennzahl.innerHTML = "<img src='img/cam_white.png'> Kamera<wbr>systeme";
+                }
+            } else if (key === "schrauber") {
+                if (value || kennzahl.classList.contains("noData")) {
+                    kennzahl.innerHTML = "<img src='img/drill.png'> Schraub<wbr>technik";
+                } else {
+                    kennzahl.innerHTML = "<img src='img/drill_white.png'> Schraub<wbr>technik";
+                }
+                
+            }
+
             if (showAll === true || kennzahlNio) {
                 kennzahlen.append(kennzahl);
                 kennzahlNio = false;
@@ -188,9 +207,6 @@ function getRandomValue() {
         randomInt = Math.floor(Math.random() * 2);
         if (randomInt === 0) {
             randomInt = Math.floor(Math.random() * 2);
-            if (randomInt === 0) {
-                randomInt = Math.floor(Math.random() * 2);
-            }
         }
     }
     return randomInt;
