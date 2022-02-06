@@ -1,6 +1,8 @@
 "use strict"
 
 let machineOverviewJSOnData;
+let viewAll = false;
+window.onload = getData();
 
 function showDetail() {
     if (this.className.includes("span2")) {
@@ -9,7 +11,7 @@ function showDetail() {
     } else {
         console.log(this);
         const detail = document.createElement("div");
-        detail.className = "deatil";
+        detail.className = "detail";
         const newP = document.createElement("p");
         newP.innerHTML = `<strong>Details:</strong>
                         <table>
@@ -54,6 +56,7 @@ function buildGrid(anlagen, showAll) {
 
     let highestNIOAnlage = {anlage: null, nios: 0};
     let lowestNIOAnlage = {anlage: null, nios: 0};
+    const animationDuration = 30;
     for (const [anlagenKey, anlagenValue] of Object.entries(anlagen)) {
         let anlageNio = false;
         let anzahlNio = 0;
@@ -119,26 +122,29 @@ function buildGrid(anlagen, showAll) {
                 main.insertAdjacentElement("afterbegin", anlage);
                 highestNIOAnlage = {anlage: anlage, nios: anzahlNio}
                 lowestNIOAnlage = {anlage: anlage, nios: anzahlNio}
-            } else if (anzahlNio >= highestNIOAnlage["nios"]) {
+            } else if (anzahlNio >= highestNIOAnlage["nios"]) { 
                 highestNIOAnlage["anlage"].before(anlage);
                 highestNIOAnlage = {anlage: anlage, nios: anzahlNio} 
-            } else if (anzahlNio > lowestNIOAnlage["nios"]) {
-                lowestNIOAnlage["anlage"].before(anlage);
-        
+            } else if (anzahlNio < lowestNIOAnlage["nios"]) {
+                lowestNIOAnlage["anlage"].after(anlage);
             } else {
                 lowestNIOAnlage["anlage"].after(anlage);
-                lowestNIOAnlage = {anlage: anlage, nios: anzahlNio};
             }
             //highestNIOAnlage = {anlage: anlage, nios: anzahlNio}
         } else if (showAll){
             main.append(anlage);
         }
+        
+    }
+
+    // Sortiere Elemente und füge Animationsdelay hinzu
+    const main = document.getElementById("main");
+    console.log(main);
+    let elements = main.querySelectorAll(".anlage");
+    for (let i = 0; i < Object.entries(elements).length; i++) {
+        elements[i].style.animationDelay = `${i*animationDuration}ms`;
     }
 }
-
-let viewAll = false;
-window.onload = getData();
-
 
 // Wechselt zwischen "Zeige Alle" und "Zeige nur NIO".
 function toggleViewAll() {
@@ -170,8 +176,7 @@ function getData() {
     .then(res => res.json())
     .then(data => {
         machineOverviewJSOnData = data;
-        randomizeData();
-        buildGrid(data, false);
+        randomizeData()
     })
 }
 
@@ -183,6 +188,9 @@ function getRandomValue() {
         randomInt = Math.floor(Math.random() * 2);
         if (randomInt === 0) {
             randomInt = Math.floor(Math.random() * 2);
+            if (randomInt === 0) {
+                randomInt = Math.floor(Math.random() * 2);
+            }
         }
     }
     return randomInt;
@@ -195,6 +203,5 @@ function randomizeData() {
             anlagenValue["anlage"]["kennzahlen"][key] = getRandomValue();
         }
     }
-    console.log(machineOverviewJSOnData);
     buildGrid(machineOverviewJSOnData,viewAll);
 }
